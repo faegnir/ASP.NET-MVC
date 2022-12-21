@@ -1,4 +1,6 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Repositories;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +28,12 @@ namespace BusinessLayer.Concrete
 
         public List<Student> GetAllStudents()
         {
-            return efStudentRepositories.GetListAll();
+            return efStudentRepositories.GetAllList();
         }
 
         public Student GetStudentByID(int id)
         {
-            return efStudentRepositories.GetByID(id);
+            return efStudentRepositories.GetById(id);
         }
 
         public void UpdateStudent(Student student)
