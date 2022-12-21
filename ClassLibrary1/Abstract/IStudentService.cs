@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,10 @@ namespace BusinessLayer.Abstract
 {
     public interface IStudentService
     {
-        void AddStudent(Student student);
-        void UpdateStudent(Student student);
-        void DeleteStudent(Student student);
-        List<Student> GetAllStudents();
-        Student GetStudentByID(int id);
+        public void AddStudent(Student student);
+        public void UpdateStudent(Student student);
+        public void DeleteStudent(Student student);
+        public List<Student> GetAllStudents();
+        public Student GetStudentByID(int id);
     }
 }

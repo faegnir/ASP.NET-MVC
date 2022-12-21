@@ -14,5 +14,6 @@ namespace DataAccessLayer.Abscract
 
         T GetById(int id);
         List<T> GetAllList();
+        
     }
 }

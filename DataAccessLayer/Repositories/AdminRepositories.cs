@@ -9,41 +9,40 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class GenericRepositories<T> : IGenericDal<T> where T : class
+    public class AdminRepositories<T> : IAdminDal<T> where T : class
     {
-        public void Delete(T t)
+        public List<Lesson> GetAllLesson()
         {
             using var c = new Context();
-            c.Remove(t);
+            return c.Set<Lesson>().ToList();
+        }
+
+        public List<Student> GetAllStudent()
+        {
+            using var c = new Context();
+            return c.Set<Student>().ToList();
+        }
+
+        public List<Teacher> GetAllTeachers()
+        {
+            using var c = new Context();
+            return c.Set<Teacher>().ToList();
+        }
+
+        public void Insert(Lesson L,Teacher T)
+        {
+            using var c = new Context();
+            c.Add(L);
+            c.Add(T);
             c.SaveChanges();
         }
-
-        public List<T> GetAllList()
+        public void Remove(Lesson L,Teacher T)
         {
             using var c = new Context();
-            return c.Set<T>().ToList();
+            c.Remove(L);
+            c.Remove(T);
         }
 
-        public T GetById(int id)
-        {
-            using var c = new Context();
-            return c.Set<T>().Find(id);
-        }
-
-        public void Insert(T t)
-        {
-            using var c = new Context();
-            c.Add(t);
-            c.SaveChanges();
-        }
-
-        public void Update(T t)
-        {
-            using var c = new Context();
-            c.Update(t);
-            c.SaveChanges();
-        }
 
     }
-        
 }
